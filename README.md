@@ -28,10 +28,14 @@ This workspace contains standalone PowerShell assessment scripts and an Azure Fu
 
 ### Managed Disk Assessment
 
+See [azure-managed-disk-analysis/README.md](azure-managed-disk-analysis/README.md) for full documentation.
+
 - [azure-managed-disk-analysis/azure-managed-disk-telemetry-analysis.ps1](azure-managed-disk-analysis/azure-managed-disk-telemetry-analysis.ps1)
-    Collects disk telemetry and compares observed behavior to disk SKU limits and costs.
+    Discovers disks via Resource Graph, batches Azure Monitor metrics, prices each disk against live Azure retail rates for its own region and redundancy, and emits a recommendation with the monthly saving attached.
 - [azure-managed-disk-analysis/New-DiskAnalysisHtmlReport.ps1](azure-managed-disk-analysis/New-DiskAnalysisHtmlReport.ps1)
-    Generates the managed disk HTML report from processed data.
+    Generates the interactive managed disk HTML report, including spend and savings totals.
+- [azure-managed-disk-analysis/disk-specs.json](azure-managed-disk-analysis/disk-specs.json)
+    Per-SKU performance limits plus the fallback billing rates used when live pricing is unavailable.
 
 ### Recovery Services Vault Assessment
 
